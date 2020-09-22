@@ -14,6 +14,10 @@ body {
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Roboto Condensed', sans-serif;
   }
+
+  .vs-notification__content__header h4 {
+    font-size: 1.2rem !important;
+  }
 }
 
 .page-container {
@@ -30,14 +34,24 @@ body {
   flex-direction: column;
   padding: 1rem;
 
-  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, var(--vs-shadow-opacity));
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0,.2);
 
   &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     width: 100%;
     margin-bottom: 1rem;
 
     h1 {
       font-size: 2rem;
+    }
+
+    &__action {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
     }
   }
 
@@ -51,7 +65,7 @@ body {
   }
 
   &--thin {
-    min-width: 650px;
+    width: 650px;
   }
 
   &--centered {
@@ -68,6 +82,12 @@ body {
   &__row {
     display: flex;
     align-items: center;
+
+    margin-top: 3rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   &__item {
@@ -89,3 +109,11 @@ body {
   }
 }
 
+//Fixes
+.vs-select__label--label {
+  transform: translate(-10px, -34px) !important;
+}
+
+.vs-input__label--label {
+  transform: translate(-10px, -34px) !important;
+}

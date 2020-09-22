@@ -1,6 +1,6 @@
 <template>
     <div class="page-container">
-        <Generator/>
+        <Generator class="mt-6"/>
     </div>
 </template>
 
