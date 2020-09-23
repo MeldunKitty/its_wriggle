@@ -189,8 +189,19 @@ export default {
 
             return randomPickedProjects
         },
-        generateProjectTasks() {
-            return 'bug fix';
+        generateProjectTasks(recurs = false) {
+            let tasks = '';
+
+            const verb = tasksSeed.verbs[this.getRandomInt(0, tasksSeed.verbs.length)];
+            const noun = tasksSeed.nouns[this.getRandomInt(0, tasksSeed.nouns.length)];
+            const tech = tasksSeed.techs[this.getRandomInt(0, tasksSeed.techs.length)];
+            tasks += `${verb} ${tech} ${noun}`;
+
+            if (!recurs && this.getRandomInt(0, 4) > 2) {
+                tasks += `, ${this.generateProjectTasks(true)}`;
+            }
+
+            return tasks;
         },
         differenceInDays(date_a, date_b) {
             return Math.ceil(Math.abs(date_a - date_b) / (1000 * 60 * 60 * 24));
@@ -262,6 +273,49 @@ const projectsSeed = [
     'its-wifi-scaner', 'itshelp', 'ITStagram', 'ITSumma', 'itsvideo', 'Kaiten', 'kube-debugger',
     'Legko', 'LinguaLeo', 'Livedune', 'Management', 'medical', 'LeadScoring'
 ]
+
+const tasksSeed = {
+    verbs: [
+        'fixing',
+        'refactor',
+        'research',
+        'test',
+        'management',
+        'refactoring',
+        'impr',
+        'review',
+        'debug',
+        'logging',
+        'update',
+        'deploy',
+        'sync',
+        'e2e'
+    ],
+    nouns: [
+        'bugs',
+        'features',
+        'tasks',
+        'tests',
+        'smart contracts',
+        'service',
+        'layout',
+        'config',
+        'ux/ui'
+    ],
+    techs: [
+        'angular',
+        'vue',
+        'laravel',
+        'amp',
+        'pwa',
+        'ssr',
+        'nodejs',
+        'docker',
+        'websocket',
+        ''
+    ]
+}
+
 </script>
 
 <style lang="scss">

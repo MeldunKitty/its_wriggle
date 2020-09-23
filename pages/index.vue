@@ -1,5 +1,6 @@
 <template>
     <div class="page-container">
+        <img class="logo" src="~assets/img/logo_w.svg" alt="">
         <Generator class="mt-6"/>
     </div>
 </template>
@@ -25,3 +26,10 @@ export default {
 
 }
 </script>
+
+<style scoped lang="scss">
+.logo {
+    width: 250px;
+    margin: 2rem auto;
+}
+</style>
